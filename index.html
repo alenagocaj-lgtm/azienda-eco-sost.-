@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoSoSt Studio - Moda Sostenibile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
+    /* Menu di navigazione fisso */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(245, 242, 235, 0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      border-bottom: 1px solid #d4ceb8;
+    }
+
+    nav .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #4A6B53;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #7A9A7B;
+    }
+
+    /* Layout delle 4 Slide */
+    .slide {
+      height: 100vh;
+      width: 100%;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
+
+    /* SLIDE 1: HOME */
+    #home {
+      background-color: #F5F2EB; /* Color Sabbia chiaro */
+      color: #2D3B32;
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      color: #4A6B53;
+      margin-bottom: 10px;
+    }
+
+    #home p.slogan {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #667C6D;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #7A9A7B; /* Verde Salvia */
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #4A6B53;
+    }
+
+    /* SLIDE 2: CHI SIAMO */
+    #chi-siamo {
+      background-color: #E6D7C3; /* Color Sabbia caldo */
+      color: #2D3B32;
+    }
+
+    #chi-siamo h2 {
+      font-size: 2.2rem;
+      color: #4A6B53;
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      max-width: 700px;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .highlight-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      border-left: 5px solid #7A9A7B;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* SLIDE 3: PRODOTTI */
+    #prodotti {
+      background-color: #F5F2EB;
+    }
+
+    #prodotti h2 {
+      font-size: 2.2rem;
+      color: #4A6B53;
+      margin-bottom: 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border: 1px solid #E0E0E0;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 120px;
+      background-color: #E8EFE9;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7A9A7B;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .product-card p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* SLIDE 4: CONTATTI */
+    #contatti {
+      background-color: #7A9A7B; /* Verde Salvia */
+      color: white;
+    }
+
+    #contatti h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      background-color: #2D3B32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #1A241E;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Navigazione -->
+  <nav>
+    <div class="logo">EcoSoSt Studio</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#chi-siamo">Chi Siamo</a></li>
+      <li><a href="#prodotti">Prodotti</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- SLIDE 1: HOME -->
+  <section id="home" class="slide">
+    <h1>EcoSoSt Studio</h1>
+    <p class="slogan">"Indossa il cambiamento, rispetta la terra."</p>
+    <a href="#prodotti" class="btn">Scopri la Collezione</a>
+  </section>
+
+  <!-- SLIDE 2: CHI SIAMO -->
+  <section id="chi-siamo" class="slide">
+    <h2>Chi Siamo</h2>
+    <p class="about-text">
+      EcoSoSt Studio produce abiti etici e sostenibili utilizzando cotone biologico e tessuti riciclati. Combattiamo lo spreco del fast fashion offrendo capi di qualità, duraturi, anallergici e prodotti nel pieno rispetto dei lavoratori.
+    </p>
+    <div class="highlight-box">
+      <strong>🔍 Il nostro Punto di Forza:</strong> Ogni capo ha un QR Code sull'etichetta che mostra l'origine dei tessuti, chi li ha confezionati e quanta acqua ed emissioni di CO₂ sono state risparmiate.
+    </div>
+  </section>
+
+  <!-- SLIDE 3: PRODOTTI -->
+  <section id="prodotti" class="slide">
+    <h2>I Nostri Capi Ecosostenibili</h2>
+    <div class="products-grid">
+      
+      <div class="product-card">
+        <div class="product-img">[ Foto T-Shirt ]</div>
+        <h3>T-shirt Bio</h3>
+        <p>Magliette basilari in 100% cotone biologico.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">[ Foto Maglione ]</div>
+        <h3>ReSweater</h3>
+        <p>Maglioni in lana e cashmere rigenerati.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">[ Foto Giacca ]</div>
+        <h3>OceanJacket</h3>
+        <p>Giacche da plastica recuperata dai mari.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">[ Foto Jeans ]</div>
+        <h3>Zero-Water Jeans</h3>
+        <p>Jeans lavorati col 95% di acqua in meno.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">[ Icona Repair ]</div>
+        <h3>EcoRepair</h3>
+        <p>Servizio di riparazione gratuita a vita.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SLIDE 4: CONTATTI -->
+  <section id="contatti" class="slide">
+    <h2>Contattaci</h2>
+    <form action="#" method="post" onsubmit="event.preventDefault(); alert('Messaggio inviato!');">
+      <input type="text" placeholder="Il tuo nome" required>
+      <input type="email" placeholder="La tua email" required>
+      <textarea rows="4" placeholder="Il tuo messaggio..." required></textarea>
+      <button type="submit">Invia Messaggio</button>
+    </form>
+  </section>
+
+</body>
+</html>
